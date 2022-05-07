@@ -2,7 +2,6 @@
  *  两数之和，C++实现，时间复杂度小于O(N^2)
  */
 
-
 #include <iostream>
 #include <vector>
 
@@ -24,12 +23,15 @@ class Solution {
 
 int main()
 {
-    Solution so;
-    vector<int> nums{3, 3};
     int target = 6;
+    vector<int> nums{3, 3};
+
+    Solution so;
     vector<int> index = so.twoSum(nums, target);
+
     for (int i : index)
-        cout << i << endl;
+        cout << i;
+    cout << endl;
 
     return 0;
 }

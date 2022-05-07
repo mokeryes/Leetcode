@@ -2,7 +2,6 @@
  *  两数相加
  */
 
-
 #include <iostream>
 
 using namespace std;
@@ -18,7 +17,7 @@ struct ListNode {
 class Solution {
     public:
         // 充分遍历两个链表
-        ListNode *addTwoNumbersFirstway(ListNode *l1, ListNode *l2) {
+        ListNode* addTwoNumbersFirstway(ListNode *l1, ListNode *l2) {
             ListNode *numList = new ListNode();
             ListNode *head = numList;
 
@@ -72,7 +71,7 @@ class Solution {
         }
 
         // 充分遍历一个链表之后，将一个链表加到另一个链表后面
-        ListNode *addTwoNumbersSecondway(ListNode *l1, ListNode *l2) {
+        ListNode* addTwoNumbersSecondway(ListNode *l1, ListNode *l2) {
             ListNode *head1 = l1;
             ListNode *head = l1;
 
@@ -127,7 +126,7 @@ int main()
 {
     int numA = 10;
     int numB = 90;
-    cin >> numA >> numB;
+//    cin >> numA >> numB;
     ListNode *numListA = creatNode(numA);
     ListNode *numListB = creatNode(numB);
 

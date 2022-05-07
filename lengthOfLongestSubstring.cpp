@@ -2,7 +2,6 @@
  *  求无重复字符串的最长子串
  */
 
-
 #include <iostream>
 
 using namespace std;
@@ -52,8 +51,7 @@ class Solution {
 int main()
 {
     string words = "";
-    cout << words.size() << endl;
-    cin >> words;
+//    cin >> words;
 
     Solution so;
     cout << so.lengthOfLongestSubstring(words) << endl;
