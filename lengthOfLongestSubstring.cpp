@@ -1,9 +1,15 @@
+/*
+ *  求无重复字符串的最长子串
+ */
+
+
 #include <iostream>
 
 using namespace std;
 
 class Solution {
     public:
+        // 暴力求法
         int lengthOfLongestSubstring(string s) {
             size_t slen = s.size();
             string tmpstr, finalstr;
