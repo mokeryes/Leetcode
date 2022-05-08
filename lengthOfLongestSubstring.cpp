@@ -85,9 +85,8 @@ int main()
     cin >> words;
 
     Solution so;
-    cout << so.lengthOfLongestSubstringWithDoublePointer(words) << endl;
-    cout << "正解:";
-    cout << so.lengthOfLongestSubstring(words) << endl;
+    cout << "暴力求解：" << so.lengthOfLongestSubstringWithDoublePointer(words) << endl;
+    cout << "滑动窗思想：" << so.lengthOfLongestSubstring(words) << endl;
 
     return 0;
 }
