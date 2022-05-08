@@ -31,11 +31,9 @@ class Solution {
             return finalstr.size();
         }
 
-        // 滑动窗思想，双指针实现
+        // 滑动窗，双指针
         int lengthOfLongestSubstringWithDoublePointer(string s) {
-            size_t slen = s.size();
-
-            if (slen == 0)
+            if (s.size() == 0)
                 return 0;
 
             int length = 0, maxLength = 0;
@@ -43,8 +41,7 @@ class Solution {
             set<char> chs;
 
             while (*p1) {
-                int ret = chs.insert(*p1).second;
-                if (!ret) {
+                if (!chs.insert(*p1).second) {
                     // 插入失败
                     chs.erase(*p2);
                     p2++;
@@ -53,9 +50,10 @@ class Solution {
                     // 插入成功
                     p1++;
                     length++;
+
+                    if (length > maxLength)
+                        maxLength = length;
                 }
-                if (length > maxLength)
-                    maxLength = length;
             }
 
             return maxLength;
