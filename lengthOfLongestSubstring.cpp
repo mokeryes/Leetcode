@@ -3,12 +3,14 @@
  */
 
 #include <iostream>
+#include <set>
+#include <map>
 
 using namespace std;
 
 class Solution {
     public:
-        // 暴力求法
+        // 暴力求解法
         int lengthOfLongestSubstring(string s) {
             size_t slen = s.size();
             string tmpstr, finalstr;
@@ -27,8 +29,37 @@ class Solution {
                 }
             }
             
-            cout << "final: " << finalstr << endl;
             return finalstr.size();
+        }
+
+        // 滑动窗思想，双指针实现
+        int lengthOfLongestSubstringWithDoublePointer(string s) {
+            size_t slen = s.size();
+
+            if (slen == 0)
+                return 0;
+
+            int length = 0, maxLength = 0;
+            char *p1 = &s[0], *p2 = &s[0];
+            set<char> chs;
+
+            while (*p1) {
+                int ret = chs.insert(*p1).second;
+                if (!ret) {
+                    // 插入失败
+                    chs.erase(*p2);
+                    p2++;
+                    length--;
+                } else {
+                    // 插入成功
+                    p1++;
+                    length++;
+                }
+                if (length > maxLength)
+                    maxLength = length;
+            }
+
+            return maxLength;
         }
 
     private:
@@ -50,10 +81,12 @@ class Solution {
 
 int main()
 {
-    string words = "";
-//    cin >> words;
+    string words = "pwwkew";
+    cin >> words;
 
     Solution so;
+    cout << so.lengthOfLongestSubstringWithDoublePointer(words) << endl;
+    cout << "正解:";
     cout << so.lengthOfLongestSubstring(words) << endl;
 
     return 0;
